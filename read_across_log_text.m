@@ -1,3 +1,6 @@
+#This is for reading the log files the mris_compute_overlap creates and making a table 
+#out of each t value for each pairwise comparison. 
+%Change "across_comparison.txt" to whatever log file you have
 
 fid  = fopen('across_comparison.txt','r');
 text = textscan(fid,'%s','Delimiter','','endofline','');
@@ -64,6 +67,12 @@ xlswrite('across_comparison', Dice(index_of_manual:length(Dice)),1, xlRange);
 % https://regex101.com/r/aA1cP9/1, for plotting, ex. of manual portion
 sayi = cellfun(@str2num, Dice); 
 plot(sayi(index_of_manual:length(sayi)), '*');
+
+%The rest of the code is commented for now, they should be for visualization and some simple 
+%stats on overlap values, I need to check and make edits. 
+%Will add parametric tests for overlap scores across and between subjects. 
+
+
 % to get in subj comparison from table
 % m_r_table =xlsread('C:\Users\yagmuridil\Desktop\comparison.xlsx',2,
 % 'M6:N7')
@@ -79,11 +88,11 @@ plot(sayi(index_of_manual:length(sayi)), '*');
 % Dice = strrep( Dice(1:length(Dice)), ',' , '.');
 % sayi = cellfun(@str2num, Dice(1:4))'
 % for creating averaged graph with significance
-figure
-hold on
-bar( [mean(b_m_table), mean(b_r_table), mean(m_r_table)])
+%figure
+%hold on
+%bar( [mean(b_m_table), mean(b_r_table), mean(m_r_table)])
 % errorbar(1:3,[mean(b_m_table), mean(b_r_table), mean(m_r_table)],[(0.6928-0.5209),(0.8093-0.7833),(0.6495-0.5228)],'.')
-sigstar({[2,3],[1,2], [1,3]},[0.01,0.01,0.01])
+%sigstar({[2,3],[1,2], [1,3]},[0.01,0.01,0.01])
 
 % xlswrite('intra_session.xlsx',table2array(OUTPUT), 1, 'A7' output is ans
 % of multcompare and ranova
