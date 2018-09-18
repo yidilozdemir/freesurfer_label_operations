@@ -1,3 +1,4 @@
+#I am not sure what this is, will get back to it.
 
 fid  = fopen('across_comparison_session.txt','r');
 text = textscan(fid,'%s','Delimiter','','endofline','');
