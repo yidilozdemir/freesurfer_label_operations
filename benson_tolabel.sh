@@ -1,5 +1,7 @@
 #!/bin/bash
 cd $SUBJECTS_DIR
+#This will create labels out of binary surface overlays, then combine them into an annotation. 
+#I am later merging some individually drawn labels into an annotation and computing overlap t score  between for each subject.  
 for subject in  "sub-06_AA" "sub-07_AB" "sub-08_AC" "sub-06_AA_2" "sub-08_AC_1" "sub-01_MW"
 do 
 mri_cor2label --i $subject/surf/lh.template_areas.mgz --id 1 --l lh.template_areas.V1.label --surf $subject lh 
@@ -18,8 +20,10 @@ mri_mergelabels -i V2d_RH.label --i V2v_RH.label --o V2_RH.label
 mri_mergelabels -i V3d_RH.label --i V3v_RH.label --o V3_RH.label
 mris_label2annot --s $subject --h lh --l V1_LH.label --l V2_LH.label --l V3_LH.label --a manual_lh
 mris_label2annot --s $subject --h rh --l V1_RH.label --l V2_RH.label --l V3_RH.label --a manual_rh
-mris_compute_parc_overlap --s $subject --hemi lh --annot1 benson_lh --annot2 manual_lh 
+mris_compute_parc_overlap --s $subject --hemi lh --annot1 benson_lh --annot2 manual_lh >> $subject_labels.log 
+mris_compute_parc_overlap --s $subject --hemi rh --annot1 benson_rh --annot2 manual_rh >> $subject_labels.log
 
+#NOTES FOR SELF
 #need to move colortable for mris_label2annot command; need to check if this will only do it if the label names are the same
 #need to rewrite color lut table for labels? :maybe just not do annot at all? do loop for numbers and hemispheres
 
