@@ -11,9 +11,9 @@ for (( i=0; i<${subjectlength}; i++))
 do 
 for (( x=$i+1; x<${subjectlength}; x++))
 do
-mris_compute_parc_overlap --s fsaverage --hemi lh --annot1 "$annot"_"${subject[$i]}" --annot2 "$annot"_"${subject[$x]}" >> across_comparison_"$annot".log 
-mris_compute_parc_overlap --s fsaverage --hemi rh --annot1 "$annot"_"${subject[$i]}" --annot2 "$annot"_"${subject[$x]}" >> across_comparison_"$annot".log 
-echo "$annot"_"${subject[$i]} comparison with""$annot"_"${subject[$x]} is done"
+mris_compute_parc_overlap --s fsaverage --hemi lh --annot1  $annot"_"${subject[$i]} --annot2 $annot"_"${subject[$x]} >> across_comparison_"$annot".log 
+mris_compute_parc_overlap --s fsaverage --hemi rh --annot1  $annot"_"${subject[$i]} --annot2 $annot"_"${subject[$x]} >> across_comparison_"$annot".log 
+echo $annot"_"${subject[$i]}" comparison with "$annot"_"${subject[$x]}" is done"
 done
 done
 done 
