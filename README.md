@@ -1,7 +1,7 @@
 # freesurfer_label_operations
 Some codes I wrote up to do between and within subject comparison of anatomical ROIs, in either unix or matlab. 
 
-*Not for public use as of now.* 
+*Not for public use as of now due to server update for a month; unable to access data and work on scripts* 
 
 Description of pipeline:
 * **1) Creation of annotation in subject native space and comparison**
