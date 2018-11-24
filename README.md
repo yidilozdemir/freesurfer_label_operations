@@ -1,5 +1,5 @@
 # freesurfer_label_operations
-Some codes I wrote up to do between and within subject comparison of anatomical ROIs, in either unix or matlab. 
+Some codes I wrote up to do between and within subject comparison of anatomical ROIs, in either unix, matlab or R
 
 *Not for public use as of now due to server update for a month; unable to access data and work on scripts* 
 
